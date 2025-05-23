@@ -1,0 +1,80 @@
+## Hi there 👋
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Tempo Juntos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff0f6;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff3366;
+    }
+    #contador {
+      font-size: 2em;
+      margin: 20px 0;
+      color: #e91e63;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 50%;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+    }
+    audio {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>❤️ Nosso Tempo Juntos ❤️</h1>
+  <div id="contador">Carregando...</div>
+
+  <!-- Substitua pela URL da sua foto -->
+  <img src="https://via.placeholder.com/300 " alt="Foto especial">
+
+  <!-- Substitua pela URL da sua música -->
+  <audio controls autoplay loop>
+    <source src="musica.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    // Data de início do relacionamento
+    const dataInicio = new Date("2023-01-15T00:00:00");
+
+    function atualizarContador() {
+      const agora = new Date();
+      let diff = Math.floor((agora - dataInicio) / 1000); // diferença em segundos
+
+      const anos = Math.floor(diff / (3600 * 24 * 365));
+      diff -= anos * 3600 * 24 * 365;
+
+      const meses = Math.floor(diff / (3600 * 24 * 30));
+      diff -= meses * 3600 * 24 * 30;
+
+      const dias = Math.floor(diff / (3600 * 24));
+      diff -= dias * 3600 * 24;
+
+      const horas = Math.floor(diff / 3600);
+      diff -= horas * 3600;
+
+      const minutos = Math.floor(diff / 60);
+      const segundos = diff % 60;
+
+      document.getElementById("contador").innerHTML =
+        `${anos} ano(s), ${meses} mês(es), ${dias} dia(s), 
+         ${horas} hora(s), ${minutos} minuto(s), ${segundos} segundo(s)`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+
+</body>
+</html>
